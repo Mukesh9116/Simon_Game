@@ -1,0 +1,60 @@
+body {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* RULES BUTTON */
+#rulesBtn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+/* RULES BOX */
+#rulesBox {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    border: 2px solid black;
+    padding: 15px;
+    width: 220px;
+    text-align: left;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    height: 200px;
+    width: 200px;
+    border-radius: 20%;
+    border: 10px solid black;
+    margin: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-container {
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.yellow { background-color: #f99b45; }
+.red { background-color: #d95980; }
+.green { background-color: #63aac0; }
+.purple { background-color: #819ff9; }
+
+.flash { background-color: white; }
+.userflash { background-color: green; }
