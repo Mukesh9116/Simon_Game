@@ -1,12 +1,15 @@
 body {
     text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    font-family: Arial, sans-serif;
 }
 
-/* RULES BUTTON */
+#startBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 15px;
+    cursor: pointer;
+}
+
 #rulesBtn {
     position: absolute;
     top: 20px;
@@ -15,7 +18,6 @@ body {
     cursor: pointer;
 }
 
-/* RULES BOX */
 #rulesBox {
     position: absolute;
     top: 70px;
@@ -24,6 +26,7 @@ body {
     border: 2px solid black;
     padding: 15px;
     width: 220px;
+    border-radius: 6px;
     text-align: left;
 }
 
@@ -32,29 +35,34 @@ body {
 }
 
 .btn {
-    height: 200px;
-    width: 200px;
+    height: 175px;
+    width: 175px;
     border-radius: 20%;
     border: 10px solid black;
     margin: 10px;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
 }
 
-.btn-container {
+.btn-container{
     width: 450px;
+    margin: auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
 }
 
-.yellow { background-color: #f99b45; }
 .red { background-color: #d95980; }
+.yellow { background-color: #f99b45; }
 .green { background-color: #63aac0; }
 .purple { background-color: #819ff9; }
 
 .flash { background-color: white; }
-.userflash { background-color: green; }
+.userflash { background-color: lightgreen; }
+
+

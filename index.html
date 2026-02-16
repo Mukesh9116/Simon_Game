@@ -2,30 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Says Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Rules Button -->
     <button id="rulesBtn">Rules</button>
 
-    <!-- Rules Box -->
     <div id="rulesBox" class="hidden">
         <h3>Game Rules</h3>
         <ul>
-            <li>Press any key to start the game</li>
-            <li>Remember the flashing button sequence</li>
-            <li>Click buttons in the same order</li>
+            <li>Click Start to begin</li>
+            <li>Remember the flashing sequence</li>
+            <li>Click buttons in same order</li>
             <li>Wrong click = Game Over</li>
-            <li>Try to reach the highest level</li>
         </ul>
         <button id="closeRules">Close</button>
     </div>
 
     <h1>Simon Game</h1>
-    <h2>Press any key to start the game</h2>
+    <h2 id="status">Click Start to begin</h2>
+
+    <button id="startBtn">Start Game</button>
 
     <div class="btn-container">
         <div class="btn red" id="red">1</div>

@@ -1,17 +1,19 @@
 let gameSeq = [];
 let userSeq = [];
 
-let btns = ["yellow", "red", "purple", "green"];
+let btns = ["red", "yellow", "green", "purple"];
 
 let started = false;
 let level = 0;
 let maxLevel = 0;
 
-let h2 = document.querySelector("h2");
+let statusText = document.querySelector("#status");
+let startBtn = document.querySelector("#startBtn");
 
-// START GAME
-document.addEventListener("keypress", function () {
+// START GAME BUTTON
+startBtn.addEventListener("click", function () {
     if (!started) {
+        resetGame();
         started = true;
         levelUp();
     }
@@ -20,23 +22,23 @@ document.addEventListener("keypress", function () {
 // FLASH FUNCTIONS
 function gameFlash(btn) {
     btn.classList.add("flash");
-    setTimeout(() => btn.classList.remove("flash"), 250);
+    setTimeout(() => btn.classList.remove("flash"), 300);
 }
 
 function userFlash(btn) {
     btn.classList.add("userflash");
-    setTimeout(() => btn.classList.remove("userflash"), 250);
+    setTimeout(() => btn.classList.remove("userflash"), 300);
 }
 
 // LEVEL UP
 function levelUp() {
     userSeq = [];
     level++;
-    h2.innerText = `Level ${level} | Highest Level: ${maxLevel}`;
+    statusText.innerText = `Level ${level} | Highest Level: ${maxLevel}`;
 
     let randIdx = Math.floor(Math.random() * 4);
     let randColor = btns[randIdx];
-    let randBtn = document.querySelector(`.${randColor}`);
+    let randBtn = document.querySelector(`#${randColor}`);
 
     gameSeq.push(randColor);
     gameFlash(randBtn);
@@ -45,28 +47,37 @@ function levelUp() {
 // CHECK ANSWER
 function checkAns(idx) {
     if (userSeq[idx] === gameSeq[idx]) {
+
         if (userSeq.length === gameSeq.length) {
             setTimeout(levelUp, 1000);
         }
+
     } else {
+
         if (level > maxLevel) {
             maxLevel = level;
         }
 
-        h2.innerHTML = `Game Over!<br>
-        Your Score: <b>${level}</b><br>
-        Highest Level: <b>${maxLevel}</b><br>
-        Press any key to restart`;
+        statusText.innerHTML = `
+            Game Over! <br>
+            Your Score: <b>${level}</b> <br>
+            Highest Level: <b>${maxLevel}</b> <br>
+            Click Start to Restart
+        `;
 
         document.body.style.backgroundColor = "red";
-        setTimeout(() => document.body.style.backgroundColor = "white", 150);
+        setTimeout(() => {
+            document.body.style.backgroundColor = "white";
+        }, 200);
 
-        reset();
+        started = false;
     }
 }
 
-// BUTTON PRESS
+// BUTTON CLICK
 function btnPress() {
+    if (!started) return;
+
     let btn = this;
     userFlash(btn);
 
@@ -79,9 +90,8 @@ function btnPress() {
 let allBtns = document.querySelectorAll(".btn");
 allBtns.forEach(btn => btn.addEventListener("click", btnPress));
 
-// RESET
-function reset() {
-    started = false;
+// RESET FUNCTION
+function resetGame() {
     gameSeq = [];
     userSeq = [];
     level = 0;
